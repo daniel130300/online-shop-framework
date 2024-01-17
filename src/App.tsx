@@ -1,10 +1,10 @@
-import { Navbar } from "./components/atoms/Navbar"
+import { HomePage } from "./components/pages/HomePage"
 
 function App() {
 
   return (
     <>
-      <Navbar/>
+      <HomePage/>
     </>
   )
 }
