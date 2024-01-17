@@ -1,7 +1,9 @@
-import FolderIcon from '@mui/icons-material/Folder';
+import WomanIcon from '@mui/icons-material/Woman';
+import ManIcon from '@mui/icons-material/Man';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 
 export const pages = [ 
-  {title: 'Products', icon: FolderIcon}, 
-  {title: 'Pricing', icon: FolderIcon}, 
-  {title: 'Blog', icon: FolderIcon}
+  {title: 'Men', icon: ManIcon}, 
+  {title: 'Women', icon: WomanIcon}, 
+  {title: 'Accesories', icon: LocalMallIcon}
 ];

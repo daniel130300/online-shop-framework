@@ -13,12 +13,15 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   return (
     <>
       <AppNavbar />
-      <Box sx={{
-        p: 4,
-        ...(isSmallScreen && {
-          overflow: 'scroll',
-        }),
-      }}>
+      <Box 
+        sx={(theme) => ({
+          p: 4,
+          ...(isSmallScreen && {
+            overflow: 'scroll',
+            height: `calc(100vh - ${theme.spacing(14)})`, // Using theme.spacing
+          })
+        })}
+      >
         {children}
       </Box>
     </>
