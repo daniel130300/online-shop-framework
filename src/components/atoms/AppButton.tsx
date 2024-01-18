@@ -22,3 +22,5 @@ export const AppButton: React.FC<AppButtonProps> = ({ children, sx, onClick, ...
     </Button>
   );
 };
+
+export default AppButton;

@@ -18,7 +18,7 @@ export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
           p: 4,
           ...(isSmallScreen && {
             overflow: 'scroll',
-            height: `calc(100vh - ${theme.spacing(14)})`, // Using theme.spacing
+            height: `calc(100vh - ${theme.spacing(14)})`,
           })
         })}
       >

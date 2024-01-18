@@ -1,37 +1,45 @@
-import { CategoryCard } from "../molecules/CategoryCard";
+import { AppCategoryCard } from "../molecules/AppCategoryCard";
 import Grid from '@mui/material/Unstable_Grid2';
 import { PageLayout } from "../templates/PageLayout";
-import Carousel from "../atoms/Carousel";
+import AppCarousel from "../atoms/AppCarousel";
+import AppProductCard from "../molecules/AppProductCard";
+import { carouselImages } from "../../constants/carouselImages";
+import { categories } from "../../constants/categories";
+import { products } from "../../constants/products";
+import Stack from '@mui/material/Stack';
 
 export const HomePage = () => {
-  const categories = [
-    { image: "src/assets/categories/men-fashion.jpg", title: "Men" },
-    { image: "src/assets/categories/women-fashion.jpg", title: "Women" },
-    { image: "src/assets/categories/accessories-fashion.jpg", title: "Accessories" }
-  ];
-
-  const carouselImages = [
-    {
-      label: 'clothes-collection',
-      path: 'src/assets/carousel/clothes-collection.jpg',
-    },
-    {
-      label: 'special-offer',
-      path: 'src/assets/carousel/special-offer.jpg'
-    }
-  ];
-
   return (
     <PageLayout>
-      <Carousel images={carouselImages}/>
-      <Grid container spacing={2}>
-        {categories.map((category, index) => (
-          <Grid key={index} xs={12} sm={6} md={4} lg={4}>
-            <CategoryCard image={category.image} title={category.title} />
-          </Grid>
-        ))}
-      </Grid>
+      <Stack spacing={8}> 
+        <AppCarousel images={carouselImages}/>
+        <Grid container spacing={2}>
+          {categories.map((category, index) => (
+            <Grid key={`category-${index}`} xs={12} sm={6} md={4} lg={4}>
+              <AppCategoryCard image={category.image} title={category.title} />
+            </Grid>
+          ))}
+        </Grid>
 
+        <Grid container spacing={2}>
+          {products.map((product, index) => (
+            <Grid
+              key={`category-${index}`} 
+              xs={12} 
+              sm={6} 
+              md={4} 
+              lg={2}
+            >
+              <AppProductCard 
+                title={product.title} 
+                price={product.price} 
+                imgPath={product.imgPath}
+                rating={product.rating}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Stack>
     </PageLayout>
   );
 }

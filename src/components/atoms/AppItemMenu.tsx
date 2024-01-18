@@ -13,3 +13,5 @@ export const AppItemMenu: React.FC<AppItemMenuProps> = ({text, onClick}) => {
     </MenuItem>
   )
 }
+
+export default AppItemMenu;

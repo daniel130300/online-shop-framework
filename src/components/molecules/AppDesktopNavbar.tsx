@@ -150,3 +150,5 @@ export const AppDesktopNavbar = () => {
     </AppBar>
   );
 }
+
+export default AppDesktopNavbar;

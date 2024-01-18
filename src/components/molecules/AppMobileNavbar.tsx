@@ -28,3 +28,5 @@ export const AppMobileNavbar = () => {
     </BottomNavigation>
   );
 }
+
+export default AppMobileNavbar;
