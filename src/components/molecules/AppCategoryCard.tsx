@@ -1,8 +1,8 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { AppDynamicCardMedia } from '../atoms/AppDynamicCardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
+import AppDynamicImage from '../atoms/AppDynamicImage';
 
 interface CategoryCardProps {
   image: string;
@@ -11,12 +11,11 @@ interface CategoryCardProps {
 
 export const AppCategoryCard: React.FC<CategoryCardProps> = ({image, title}) => {
   return (
-    <Card sx={{ position: 'relative' }}>
+    <Card sx={{ position: 'relative', maxHeight: '300px' }}>
       <CardActionArea>
-        <AppDynamicCardMedia
-          image={image}
-          title={title}
-          maxHeight='300px'
+        <AppDynamicImage
+          src={image}
+          alt={title}
         />
         <CardContent
           sx={(theme) => ({

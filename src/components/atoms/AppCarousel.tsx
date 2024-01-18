@@ -5,6 +5,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import MobileStepper from '@mui/material/MobileStepper';
 import { useTheme } from '@mui/material/styles';
 import { AppButton } from './AppButton';
+import AppDynamicImage from './AppDynamicImage';
 
 interface CarouselImages {
   label: string;
@@ -32,18 +33,10 @@ export const AppCarousel: React.FC<AppCarouselProps> = ({ images }) => {
       {images.map((step, index) => (
         <div key={step.label} style={{ display: activeStep === index ? 'block' : 'none' }}>
           {Math.abs(activeStep - index) <= 2 ? (
-            <Box
-              component="img"
-              sx={{
-                height: '100%',
-                maxHeight: '800px',
-                display: 'block',
-                overflow: 'hidden',
-                width: '100%',
-                objectFit: 'cover', 
-              }}
+            <AppDynamicImage
               src={step.path}
-              alt={step.label}
+              title={step.label}
+              maxHeight='800px'
             />
           ) : null}
         </div>

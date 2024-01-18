@@ -3,7 +3,8 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import Rating from '@mui/material/Rating';
-import { AppDynamicCardMedia } from '../atoms/AppDynamicCardMedia';
+import AppDynamicImage from '../atoms/AppDynamicImage';
+import { useTheme } from '@mui/material/styles';
 
 interface AppProductCardProps {
   title: string;
@@ -13,25 +14,37 @@ interface AppProductCardProps {
 }
 
 export const AppProductCard: React.FC<AppProductCardProps> = ({title, price, imgPath, rating}) => {
+  const theme = useTheme();
+
   return (
     <Card 
-      sx={{ 
+      sx={{
         maxWidth: 300,
-        height: '100%'
+        height: '100%',
+        maxHeight: '800px'
       }}>
-      <CardActionArea>
-        <AppDynamicCardMedia
-          image={imgPath}
-          title={title}
+      <CardActionArea
+        sx={{
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}
+      >
+        <AppDynamicImage
+          src={imgPath}
+          alt={title}
+          backgroundColor={theme.palette.primary.contrastText}
         />
         <CardContent 
           sx={{
             display: 'flex',
-            flexDirection: 'column', 
-            alignItems: 'center', 
-            height: '100%',
+            flexDirection: 'column',
+            alignItems: 'center',
             justifyContent: 'space-between'
-          }}>
+          }}
+        >
           <Typography gutterBottom variant="body1" component="div">
             {title}
           </Typography>
