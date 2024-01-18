@@ -29,6 +29,11 @@ export const HomePage = () => {
               sm={6} 
               md={4} 
               lg={2}
+              sx={{
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center'
+              }}
             >
               <AppProductCard 
                 title={product.title} 

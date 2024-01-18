@@ -2,6 +2,7 @@ import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { pages } from '../../constants/pages';
+import { Badge } from '@mui/material';
 
 export const AppMobileNavbar = () => {
   const [value, setValue] = React.useState(0);
@@ -23,7 +24,17 @@ export const AppMobileNavbar = () => {
       }}
     >
       {pages.map((page) => (
-        <BottomNavigationAction key={page.title} label={page.title} icon={<page.icon/>} />
+        <BottomNavigationAction 
+          key={page.title} 
+          label={page.title} 
+          icon={
+            page.isCart ? (
+              <Badge badgeContent={4} color="error">
+                <page.icon/>
+              </Badge>
+            ) : <page.icon/>
+          } 
+      />
       ))}
     </BottomNavigation>
   );

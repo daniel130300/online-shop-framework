@@ -14,6 +14,9 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { AppButton } from '../atoms/AppButton';
 import { pages } from '../../constants/pages';
 import { profileSettings } from '../../constants/profileSettings';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Stack from '@mui/material/Stack';
+import Badge from '@mui/material/Badge';
 
 export const AppDesktopNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -85,7 +88,7 @@ export const AppDesktopNavbar = () => {
               }}
             >
               {pages.map((page) => (
-                <AppItemMenu key={page.title} text={page.title} onClick={handleCloseNavMenu}/>
+                !page.isCart && <AppItemMenu key={page.title} text={page.title} onClick={handleCloseNavMenu}/>
               ))}
             </Menu>
           </Box>
@@ -108,17 +111,24 @@ export const AppDesktopNavbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <AppButton 
-                key={page.title}
-                onClick={handleCloseNavMenu} 
-                sx={{ my: 2, display: 'block', color: 'text.primary' }}
-              >
-                {page.title}
-              </AppButton>
+              !page.isCart && (
+                <AppButton 
+                  key={page.title}
+                  onClick={handleCloseNavMenu} 
+                  sx={{ my: 2, display: 'block', color: 'text.primary' }}
+                >
+                  {page.title}
+                </AppButton>
+              )
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Stack direction="row" spacing={1} sx={{flexGrow: 0}}>
+            <IconButton aria-label="shopping cart">
+            <Badge badgeContent={4} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+            </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -144,7 +154,7 @@ export const AppDesktopNavbar = () => {
                 <AppItemMenu key={setting} text={setting} onClick={handleCloseUserMenu}/>
               ))}
             </Menu>
-          </Box>
+          </Stack>
         </Toolbar>
       </Container>
     </AppBar>

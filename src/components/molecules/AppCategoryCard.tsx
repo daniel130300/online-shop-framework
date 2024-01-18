@@ -11,8 +11,8 @@ interface CategoryCardProps {
 
 export const AppCategoryCard: React.FC<CategoryCardProps> = ({image, title}) => {
   return (
-    <Card sx={{ position: 'relative', maxHeight: '300px' }}>
-      <CardActionArea>
+    <Card sx={{ position: 'relative', maxHeight: '300px', height: '100%' }}>
+      <CardActionArea sx={{height: '100%'}}>
         <AppDynamicImage
           src={image}
           alt={title}
@@ -33,7 +33,7 @@ export const AppCategoryCard: React.FC<CategoryCardProps> = ({image, title}) => 
           </Typography>
         </CardContent>
       </CardActionArea>
-      </Card>
+    </Card>
   );
 };
 
